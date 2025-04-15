@@ -1,6 +1,6 @@
 # Hortmann OrderFlow
 
-![image](icon.png)
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/v6c2MMt7/logo.png" alt="logo" border="0" width="70"/></a>
 
 ## Sobre o App
 
@@ -31,7 +31,8 @@
 ## Protótipos de Tela
 
 Os protótipos das telas foram desenvolvidos no Figma para ilustrar o fluxo de navegação e a interface do app.  
-Visualize os protótipos interativos neste link:  
+Visualize os protótipos interativos neste link:
+
 [Protótipos Hortmann OrderFlow (Figma)](https://www.figma.com/design/5GWDk38ZU3ZAeymg0S3uFk/Prot%C3%B3tipos-de-tela?node-id=1-2&t=3D8Ax57qTM93HFPk-1)  
 
 ---
@@ -41,7 +42,7 @@ Visualize os protótipos interativos neste link:
 Para o **Hortmann OrderFlow**, optamos por uma modelagem de banco de dados relacional simples que contempla tanto os dados das entregas quanto o gerenciamento de usuários. A seguir, a descrição das principais entidades e seus relacionamentos:
 
 [Diagrama Público do Banco (draw.io)](https://drive.google.com/file/d/1tUQum6Utk3d2phQTcHz3OAAhMv6ZUcdX/view?usp=sharing)  
----
+
 
 ## Planejamento de Sprints
 
