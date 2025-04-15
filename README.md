@@ -1,6 +1,6 @@
 # Hortmann OrderFlow
 
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/v6c2MMt7/logo.png" alt="logo" border="0" width="70"/></a>
+<img src="https://i.ibb.co/v6c2MMt7/logo.png" alt="logo" border="0" width="70"/>
 
 ## Sobre o App
 
