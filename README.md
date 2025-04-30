@@ -49,8 +49,8 @@ Para o **Hortmann OrderFlow**, optamos por uma modelagem de banco de dados relac
 Segue o cronograma das sprints planejadas até a conclusão do aplicativo:
 
 ### Sprint 1 (20/04 - 26/04)
-- [ ] **Criar Projeto Expo e configurar com Expo Router**  
-- [ ] **Criar e estilizar header**
+- [X] **Criar Projeto Expo e configurar com Expo Router**
+- [X] **Criar e estilizar header**
 
 ### Sprint 2 (27/04 - 03/05)
 - [ ] **Criar estaticamente e estilizar as páginas:**  
