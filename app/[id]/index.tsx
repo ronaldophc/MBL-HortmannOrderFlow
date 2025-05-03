@@ -1,34 +1,33 @@
+import { router, useGlobalSearchParams } from "expo-router";
+import { useState } from "react";
 import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
   Image,
+  StyleSheet,
+  Text,
   TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import React, { useState } from "react";
-import { router } from "expo-router";
+import HeaderHidden from "../../components/headers/HeaderHidden";
 import {
   DEFAULT_BACKGROUND_COLOR,
   DEFAULT_COLOR,
   DEFAULT_TEXT_COLOR,
-} from "../constants/globalStyles";
-import HeaderHidden from "../components/headers/HeaderHidden";
+} from "../../constants/globalStyles";
+import InfoStatus from "../../components/order/InfoStatus";
 
 export default function index() {
-  const [orderCode, onChangeOrderCode] = useState("a");
+  const { id } = useGlobalSearchParams();
+
+  const [orderCode, onChangeOrderCode] = useState(id as string);
 
   return (
     <View style={styles.container}>
       <HeaderHidden />
       <View style={styles.header}>
-        <Image style={styles.image} source={require("../assets/logo.png")} />
+        <Image style={styles.image} source={require("../../assets/logo.png")} />
         <Text style={styles.title}>Hortmann OrderFlow</Text>
       </View>
-
-      <Text style={styles.please}>
-        Por favor, insira o código do seu pedido.
-      </Text>
 
       <TextInput
         placeholder="Insira o código do pedido"
@@ -39,12 +38,25 @@ export default function index() {
       />
       <TouchableOpacity
         onPress={() => {
-          router.push(`/${orderCode}`);
+          router.push("/1");
         }}
         style={styles.button}
       >
         <Text style={styles.buttonText}>VERIFICAR</Text>
       </TouchableOpacity>
+
+      <View style={styles.statuses}>
+        <InfoStatus
+          status="Pedido enviado"
+          orderDate="15/03/2025 17:30"
+          orderDescription="Pedido enviado. Para mais informações entre em contato com (42) 99999-9999."
+        />
+        <InfoStatus
+          status="Pedido em produção"
+          orderDate="15/03/2025 10:00"
+          orderDescription="Pedido sendo produzido."
+        />
+      </View>
 
       <TouchableOpacity
         onPress={() => {
@@ -75,14 +87,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   header: {
-    marginTop: 100,
+    marginTop: 20,
     alignItems: "center",
-  },
-  please: {
-    fontSize: 20,
-    color: "white",
-    marginTop: 100,
-    fontWeight: "bold",
   },
   input: {
     height: 60,
@@ -93,7 +99,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     color: "black",
     fontSize: 20,
-    marginTop: 100,
+    marginTop: 20,
   },
   button: {
     backgroundColor: DEFAULT_COLOR,
@@ -108,6 +114,13 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 20,
     fontWeight: "bold",
+  },
+  statuses: {
+    width: "90%",
+    marginTop: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 10,
   },
   buttonLoginText1: {
     color: "white",
