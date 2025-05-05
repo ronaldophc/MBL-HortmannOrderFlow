@@ -1,39 +1,29 @@
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  Image,
-  TextInput,
-} from "react-native";
+import { View, Text, TouchableOpacity, Image, TextInput } from "react-native";
 import React, { useState } from "react";
 import { router } from "expo-router";
-import {
-  DEFAULT_BACKGROUND_COLOR,
-  DEFAULT_COLOR,
-  DEFAULT_TEXT_COLOR,
-} from "../constants/globalStyles";
 import HeaderHidden from "../components/headers/HeaderHidden";
 
 export default function index() {
   const [orderCode, onChangeOrderCode] = useState("a");
 
   return (
-    <View style={styles.container}>
+    <View className="flex-1 bg-gray-400 items-center">
       <HeaderHidden />
-      <View style={styles.header}>
-        <Image style={styles.image} source={require("../assets/logo.png")} />
-        <Text style={styles.title}>Hortmann OrderFlow</Text>
+      <View className="mt-24 items-center">
+        <Image className="w-20 h-20" source={require("../assets/logo.png")} />
+        <Text className="font-bold text-3xl text-blue-700">
+          Hortmann OrderFlow
+        </Text>
       </View>
 
-      <Text style={styles.please}>
+      <Text className="text-white text-xl font-bold mt-24">
         Por favor, insira o código do seu pedido.
       </Text>
 
       <TextInput
         placeholder="Insira o código do pedido"
         placeholderTextColor="black"
-        style={styles.input}
+        className="h-14 w-11/12 p-3 bg-white text-black text-lg rounded-t-lg mt-16"
         onChangeText={onChangeOrderCode}
         value={orderCode}
       />
@@ -41,90 +31,22 @@ export default function index() {
         onPress={() => {
           router.push(`/${orderCode}`);
         }}
-        style={styles.button}
+        className="bg-blue-700 w-11/12 h-14 items-center justify-center rounded-b-lg"
       >
-        <Text style={styles.buttonText}>VERIFICAR</Text>
+        <Text className="text-white text-lg font-bold">VERIFICAR</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         onPress={() => {
           router.push("/login");
         }}
-        style={styles.buttonLogin}
+        className="flex-row items-center justify-center mt-12"
       >
-        <Text style={styles.buttonLoginText1}>Possui cadastro? </Text>
-        <Text style={styles.buttonLoginText2}>Entre aqui!</Text>
+        <Text className="text-white text-xl font-bold">Possui cadastro? </Text>
+        <Text className="text-blue-700 text-xl font-bold underline">
+          Entre aqui!
+        </Text>
       </TouchableOpacity>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: DEFAULT_BACKGROUND_COLOR,
-    alignItems: "center",
-  },
-  image: {
-    width: 80,
-    height: 80,
-  },
-  title: {
-    fontSize: 30,
-    color: DEFAULT_TEXT_COLOR,
-    fontWeight: "bold",
-  },
-  header: {
-    marginTop: 100,
-    alignItems: "center",
-  },
-  please: {
-    fontSize: 20,
-    color: "white",
-    marginTop: 100,
-    fontWeight: "bold",
-  },
-  input: {
-    height: 60,
-    width: "90%",
-    padding: 10,
-    borderTopStartRadius: 10,
-    borderTopEndRadius: 10,
-    backgroundColor: "white",
-    color: "black",
-    fontSize: 20,
-    marginTop: 100,
-  },
-  button: {
-    backgroundColor: DEFAULT_COLOR,
-    width: "90%",
-    height: 60,
-    alignItems: "center",
-    justifyContent: "center",
-    borderBottomStartRadius: 10,
-    borderBottomEndRadius: 10,
-  },
-  buttonText: {
-    color: "white",
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  buttonLoginText1: {
-    color: "white",
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  buttonLoginText2: {
-    color: DEFAULT_COLOR,
-    fontSize: 20,
-    fontWeight: "bold",
-    textDecorationLine: "underline",
-    textDecorationColor: DEFAULT_COLOR,
-  },
-  buttonLogin: {
-    marginTop: 50,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

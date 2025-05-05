@@ -1,18 +1,6 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import HeaderHidden from "../../components/headers/HeaderHidden";
-import {
-  DEFAULT_BACKGROUND_COLOR,
-  DEFAULT_COLOR,
-  DEFAULT_TEXT_COLOR,
-} from "../../constants/globalStyles";
 import { router } from "expo-router";
 
 export default function login() {
@@ -20,15 +8,20 @@ export default function login() {
   const [password, onChangePassword] = useState("123");
 
   return (
-    <View style={styles.container}>
+    <View className="flex-1 bg-gray-400 items-center">
       <HeaderHidden />
-      <View style={styles.header}>
-        <Image style={styles.image} source={require("../../assets/logo.png")} />
-        <Text style={styles.title}>Hortmann OrderFlow</Text>
+      <View className="mt-24 items-center">
+        <Image
+          className="w-24 h-24"
+          source={require("../../assets/logo.png")}
+        />
+        <Text className="text-blue-700 text-3xl font-bold mt-4">
+          Hortmann OrderFlow
+        </Text>
       </View>
 
       <TextInput
-        style={[styles.input]}
+        className="h-14 w-11/12 p-3 bg-white text-black text-lg rounded-lg mt-24"
         placeholder="Seu Email"
         placeholderTextColor="black"
         onChangeText={onChangeUsername}
@@ -36,9 +29,9 @@ export default function login() {
       />
       <TextInput
         secureTextEntry
+        className="h-14 w-11/12 p-3 bg-white text-black text-lg rounded-lg mt-4"
         placeholder="Sua senha"
         placeholderTextColor="black"
-        style={styles.input}
         onChangeText={onChangePassword}
         value={password}
       />
@@ -46,54 +39,10 @@ export default function login() {
         onPress={() => {
           router.push("/home");
         }}
-        style={styles.button}
+        className="bg-blue-700 w-11/12 h-14 items-center justify-center rounded-lg mt-6"
       >
-        <Text style={styles.buttonText}>ENTRAR</Text>
+        <Text className="text-white text-lg font-bold">ENTRAR</Text>
       </TouchableOpacity>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: DEFAULT_BACKGROUND_COLOR,
-    alignItems: "center",
-  },
-  image: {
-    width: 100,
-    height: 100,
-  },
-  title: {
-    fontSize: 30,
-    color: DEFAULT_TEXT_COLOR,
-    fontWeight: "bold",
-  },
-  header: {
-    marginTop: 100,
-    alignItems: "center",
-    marginBottom: 100,
-  },
-  input: {
-    height: 60,
-    width: "90%",
-    padding: 10,
-    backgroundColor: "white",
-    color: "black",
-    fontSize: 20,
-    marginBottom: 20,
-  },
-  button: {
-    backgroundColor: DEFAULT_COLOR,
-    width: "90%",
-    height: 60,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 10,
-  },
-  buttonText: {
-    color: "white",
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-});

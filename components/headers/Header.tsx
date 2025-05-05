@@ -1,12 +1,11 @@
 import React from "react";
 import { Stack } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { Image, StyleSheet, TouchableOpacity } from "react-native";
-import { DEFAULT_BACKGROUND_COLOR_HEADER } from "../../constants/globalStyles";
+import { Image, TouchableOpacity } from "react-native";
 
 function LogoTitle() {
   return (
-    <Image style={styles.image} source={require("../../assets/logo.png")} />
+    <Image className="w-10 h-10" source={require("../../assets/logo.png")} />
   );
 }
 
@@ -22,7 +21,7 @@ export default function HeaderWithTitle() {
   return (
     <Stack.Screen
       options={{
-        headerStyle: { backgroundColor: DEFAULT_BACKGROUND_COLOR_HEADER },
+        headerStyle: { backgroundColor: '#2D0097' },
         headerTitle: () => <LogoTitle />,
         headerTitleAlign: "center",
         headerRight: () => <CreateButton />,
@@ -30,10 +29,3 @@ export default function HeaderWithTitle() {
     />
   );
 }
-
-const styles = StyleSheet.create({
-  image: {
-    width: 40,
-    height: 40,
-  },
-});

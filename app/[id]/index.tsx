@@ -1,38 +1,30 @@
+import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
 import { router, useGlobalSearchParams } from "expo-router";
-import { useState } from "react";
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
 import HeaderHidden from "../../components/headers/HeaderHidden";
-import {
-  DEFAULT_BACKGROUND_COLOR,
-  DEFAULT_COLOR,
-  DEFAULT_TEXT_COLOR,
-} from "../../constants/globalStyles";
 import InfoStatus from "../../components/order/InfoStatus";
 
 export default function index() {
   const { id } = useGlobalSearchParams();
-
   const [orderCode, onChangeOrderCode] = useState(id as string);
 
   return (
-    <View style={styles.container}>
+    <View className="flex-1 bg-gray-400 items-center">
       <HeaderHidden />
-      <View style={styles.header}>
-        <Image style={styles.image} source={require("../../assets/logo.png")} />
-        <Text style={styles.title}>Hortmann OrderFlow</Text>
+      <View className="mt-10 items-center">
+        <Image
+          className="w-20 h-20"
+          source={require("../../assets/logo.png")}
+        />
+        <Text className="text-blue-700 text-3xl font-bold mt-2">
+          Hortmann OrderFlow
+        </Text>
       </View>
 
       <TextInput
         placeholder="Insira o código do pedido"
         placeholderTextColor="black"
-        style={styles.input}
+        className="h-14 w-11/12 p-3 bg-white text-black text-lg rounded-t-lg mt-5"
         onChangeText={onChangeOrderCode}
         value={orderCode}
       />
@@ -40,12 +32,12 @@ export default function index() {
         onPress={() => {
           router.push("/1");
         }}
-        style={styles.button}
+        className="bg-blue-700 w-11/12 h-14 items-center justify-center rounded-b-lg"
       >
-        <Text style={styles.buttonText}>VERIFICAR</Text>
+        <Text className="text-white text-lg font-bold">VERIFICAR</Text>
       </TouchableOpacity>
 
-      <View style={styles.statuses}>
+      <View className="w-11/12 mt-5 items-center gap-4">
         <InfoStatus
           status="Pedido enviado"
           orderDate="15/03/2025 17:30"
@@ -62,82 +54,13 @@ export default function index() {
         onPress={() => {
           router.push("/login");
         }}
-        style={styles.buttonLogin}
+        className="flex-row items-center justify-center mt-12"
       >
-        <Text style={styles.buttonLoginText1}>Possui cadastro? </Text>
-        <Text style={styles.buttonLoginText2}>Entre aqui!</Text>
+        <Text className="text-white text-xl font-bold">Possui cadastro? </Text>
+        <Text className="text-blue-700 text-xl font-bold underline">
+          Entre aqui!
+        </Text>
       </TouchableOpacity>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: DEFAULT_BACKGROUND_COLOR,
-    alignItems: "center",
-  },
-  image: {
-    width: 80,
-    height: 80,
-  },
-  title: {
-    fontSize: 30,
-    color: DEFAULT_TEXT_COLOR,
-    fontWeight: "bold",
-  },
-  header: {
-    marginTop: 20,
-    alignItems: "center",
-  },
-  input: {
-    height: 60,
-    width: "90%",
-    padding: 10,
-    borderTopStartRadius: 10,
-    borderTopEndRadius: 10,
-    backgroundColor: "white",
-    color: "black",
-    fontSize: 20,
-    marginTop: 20,
-  },
-  button: {
-    backgroundColor: DEFAULT_COLOR,
-    width: "90%",
-    height: 60,
-    alignItems: "center",
-    justifyContent: "center",
-    borderBottomStartRadius: 10,
-    borderBottomEndRadius: 10,
-  },
-  buttonText: {
-    color: "white",
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  statuses: {
-    width: "90%",
-    marginTop: 10,
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 10,
-  },
-  buttonLoginText1: {
-    color: "white",
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  buttonLoginText2: {
-    color: DEFAULT_COLOR,
-    fontSize: 20,
-    fontWeight: "bold",
-    textDecorationLine: "underline",
-    textDecorationColor: DEFAULT_COLOR,
-  },
-  buttonLogin: {
-    marginTop: 50,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
