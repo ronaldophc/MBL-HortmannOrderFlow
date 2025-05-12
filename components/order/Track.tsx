@@ -1,6 +1,7 @@
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { router } from "expo-router";
+import { orders } from "../../mocks/mocks";
 
 type TrackProps = {
     oldOrderCode?: string;
@@ -20,6 +21,11 @@ export default function Track({ oldOrderCode }: TrackProps) {
       />
       <TouchableOpacity
         onPress={() => {
+          const order = orders.find((order) => order.code === orderCode);
+          if (!order) {
+            alert("Pedido não encontrado");
+            return;
+          }
           router.push(`/${orderCode}`);
         }}
         className="bg-blue-700 w-11/12 h-14 items-center justify-center rounded-b-lg"

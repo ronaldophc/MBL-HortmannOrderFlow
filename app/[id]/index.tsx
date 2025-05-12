@@ -6,6 +6,7 @@ import InfoStatus from "../../components/order/InfoStatus";
 import Track from "../../components/order/Track";
 import FullLogo from "../../components/FullLogo";
 import SugestLogin from "../../components/SugestLogin";
+import { updates } from "../../mocks/mocks";
 
 export default function index() {
   const { id } = useGlobalSearchParams();
@@ -18,16 +19,16 @@ export default function index() {
       <Track oldOrderCode={id as string} />
 
       <View className="w-11/12 mt-5 items-center gap-4">
-        <InfoStatus
-          status="Pedido enviado"
-          orderDate="15/03/2025 17:30"
-          orderDescription="Pedido enviado. Para mais informações entre em contato com (42) 99999-9999."
-        />
-        <InfoStatus
-          status="Pedido em produção"
-          orderDate="15/03/2025 10:00"
-          orderDescription="Pedido sendo produzido."
-        />
+        {updates
+          .filter((update) => update.order_code == id)
+          .map((update) => (
+            <InfoStatus
+              key={update.id}
+              status={update.status}
+              date={update.date}
+              description={update.description}
+            />
+          ))}
       </View>
 
       <SugestLogin />

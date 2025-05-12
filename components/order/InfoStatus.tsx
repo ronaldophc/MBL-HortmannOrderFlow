@@ -3,21 +3,21 @@ import React from "react";
 
 type InfoStatusProps = {
   status: string;
-  orderDate: string;
-  orderDescription: string;
+  date: string;
+  description: string;
 };
 
 export default function InfoStatus({
   status,
-  orderDate,
-  orderDescription,
+  date,
+  description,
 }: InfoStatusProps) {
   return (
     <View className="bg-gray-300 w-full p-2">
       <Text className="font-bold text-lg">
-        {status} {orderDate}
+        {status} {date}
       </Text>
-      <Text>{orderDescription}</Text>
+      <Text>{description}</Text>
     </View>
   );
 }
