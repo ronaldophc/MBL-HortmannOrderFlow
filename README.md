@@ -64,10 +64,10 @@ Segue o cronograma das sprints planejadas até a conclusão do aplicativo:
 
 ### Sprint 3 (04/05 - 10/05)
 
-- [ ] **Separar as seguintes páginas em componentes**
-  - [ ] Home(Pública).
-  - [ ] Visualização do pedido(Pública).
-  - [ ] Login.
+- [X] **Separar as seguintes páginas em componentes**
+  - [X] Home(Pública).
+  - [X] Visualização do pedido(Pública).
+  - [X] Login.
 - [ ] **Criar dados fakes e adaptar os componentes com os mesmos**
 
 ### Sprint 4 (11/05 - 17/05)

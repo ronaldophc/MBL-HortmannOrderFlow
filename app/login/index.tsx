@@ -2,6 +2,7 @@ import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import HeaderHidden from "../../components/headers/HeaderHidden";
 import { router } from "expo-router";
+import FullLogo from "../../components/FullLogo";
 
 export default function login() {
   const [username, onChangeUsername] = useState("fulano");
@@ -10,15 +11,7 @@ export default function login() {
   return (
     <View className="flex-1 bg-gray-400 items-center">
       <HeaderHidden />
-      <View className="mt-24 items-center">
-        <Image
-          className="w-24 h-24"
-          source={require("../../assets/logo.png")}
-        />
-        <Text className="text-blue-700 text-3xl font-bold mt-4">
-          Hortmann OrderFlow
-        </Text>
-      </View>
+      <FullLogo />
 
       <TextInput
         className="h-14 w-11/12 p-3 bg-white text-black text-lg rounded-lg mt-24"
