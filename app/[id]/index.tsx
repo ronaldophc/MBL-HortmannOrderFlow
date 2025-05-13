@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { SafeAreaView, ScrollView, View } from "react-native";
 import React from "react";
 import { useGlobalSearchParams } from "expo-router";
 import HeaderHidden from "../../components/headers/HeaderHidden";
@@ -12,26 +12,28 @@ export default function index() {
   const { id } = useGlobalSearchParams();
 
   return (
-    <View className="flex-1 bg-gray-400 items-center">
-      <HeaderHidden />
-      <FullLogo />
+    <ScrollView>
+      <View className="flex-1 bg-gray-400 items-center">
+        <HeaderHidden />
+        <FullLogo />
 
-      <Track oldOrderCode={id as string} />
+        <Track oldOrderCode={id as string} />
 
-      <View className="w-11/12 mt-5 items-center gap-4">
-        {updates
-          .filter((update) => update.order_code == id)
-          .map((update) => (
-            <InfoStatus
-              key={update.id}
-              status={update.status}
-              date={update.date}
-              description={update.description}
-            />
-          ))}
+        <View className="w-11/12 mt-5 items-center gap-4">
+          {updates
+            .filter((update) => update.order_code == id)
+            .map((update, index) => (
+              <InfoStatus
+                key={index}
+                status={update.status}
+                date={update.date}
+                description={update.description}
+              />
+            ))}
+        </View>
+
+        <SugestLogin />
       </View>
-
-      <SugestLogin />
-    </View>
+    </ScrollView>
   );
 }

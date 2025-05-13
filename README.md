@@ -23,7 +23,7 @@
 
 ### Funcionalidades Adicionais / Trabalhos Futuros:
 
-- [ ] **Favotirar pedidos:**
+- [ ] **Favoritar pedidos:**
   - Usuário geral poder ter uma lista de pedidos para monitorar.
 - [ ] **Notificações:**
   - Alertar o usuário sobre atualizações importantes de seus pedidos favoritados.
@@ -44,6 +44,11 @@ Visualize os protótipos interativos neste link:
 Para o **Hortmann OrderFlow**, optamos por uma modelagem de banco de dados relacional simples que contempla tanto os dados das entregas quanto o gerenciamento de usuários. A seguir, a descrição das principais entidades e seus relacionamentos:
 
 [Diagrama Público do Banco (draw.io)](https://drive.google.com/file/d/1tUQum6Utk3d2phQTcHz3OAAhMv6ZUcdX/view?usp=sharing)
+
+## Atualizações desde o último checkpoint
+Utilizei o NativeWind para estilizar toda a aplicação.
+Realizei a componentização de todas as páginas, podendo ser reutilizaveis como a logo(FullLogo) ou se repetindo como o InfoStatus que mostra cada update do pedido.
+
 
 ## Planejamento de Sprints
 

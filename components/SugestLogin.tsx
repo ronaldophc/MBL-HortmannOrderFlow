@@ -8,7 +8,7 @@ export default function SugestLogin() {
       onPress={() => {
         router.push("/login");
       }}
-      className="flex-row items-center justify-center mt-12"
+      className="flex-row items-center justify-center mt-12 mb-5"
     >
       <Text className="text-white text-xl font-bold">Possui cadastro? </Text>
       <Text className="text-blue-700 text-xl font-bold underline">
