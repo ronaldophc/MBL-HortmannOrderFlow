@@ -46,9 +46,9 @@ Para o **Hortmann OrderFlow**, optamos por uma modelagem de banco de dados relac
 [Diagrama Público do Banco (draw.io)](https://drive.google.com/file/d/1tUQum6Utk3d2phQTcHz3OAAhMv6ZUcdX/view?usp=sharing)
 
 ## Atualizações desde o último checkpoint
+
 Utilizei o NativeWind para estilizar toda a aplicação.
 Realizei a componentização de todas as páginas, podendo ser reutilizaveis como a logo(FullLogo) ou se repetindo como o InfoStatus que mostra cada update do pedido.
-
 
 ## Planejamento de Sprints
 
@@ -69,19 +69,19 @@ Segue o cronograma das sprints planejadas até a conclusão do aplicativo:
 
 ### Sprint 3 (04/05 - 10/05)
 
-- [X] **Separar as seguintes páginas em componentes**
-  - [X] Home(Pública)
-  - [X] Visualização do pedido(Pública).
-  - [X] Login.
-- [X] **Criar dados fakes e adaptar os componentes com os mesmos**
+- [x] **Separar as seguintes páginas em componentes**
+  - [x] Home(Pública)
+  - [x] Visualização do pedido(Pública).
+  - [x] Login.
+- [x] **Criar dados fakes e adaptar os componentes com os mesmos**
 
 ### Sprint 4 (11/05 - 17/05)
 
-- [ ] **Atualizar Readme.md para o CheckPoint 2**
-  - [ ] Marcar tarefas executadas.
-  - [ ] Adicionar novas tarefas se necessário.
-  - [ ] Criar seção 'Atualizações desde o último checkpoint'.
-- [ ] **Gravar vídeo demonstrando o app**
+- [x] **Atualizar Readme.md para o CheckPoint 2**
+  - [x] Marcar tarefas executadas.
+  - [x] Adicionar novas tarefas se necessário.
+  - [x] Criar seção 'Atualizações desde o último checkpoint'.
+- [X] **Gravar vídeo demonstrando o app**
 
 ### Sprint 5 (18/05 - 24/05)
 
@@ -104,3 +104,12 @@ Segue o cronograma das sprints planejadas até a conclusão do aplicativo:
 
 - [ ] **Atualizar Readme.md**
 - [ ] **Gravar vídeo de apresentação do APP**
+
+## Atualizações desde o último checkpoint
+- Utilizei Native Wind para estilizar todas as telas e componentes da aplicação
+- Como boas práticas:
+  - Criei componentes que são reutilizaveis, como o InfoStatus, que tem a função de mostrar uma atualização do pedido
+  - Utilizei mocks para simular o banco de dados enquanto o mesmo não é implementado.
+
+## Video do Checkpoint 2 apresentando as telas feitas
+- https://youtu.be/Ln59bTb2Ojc
