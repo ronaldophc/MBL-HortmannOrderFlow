@@ -7,7 +7,7 @@ import FullLogo from "../../components/FullLogo";
 import { users } from "../../mocks/mocks";
 
 export default function login() {
-  const [email, onChangeemail] = useState("fulano");
+  const [email, onChangeemail] = useState("fulano@gmail.com");
   const [password, onChangePassword] = useState("123");
 
   return (
@@ -31,7 +31,7 @@ export default function login() {
         onChangeText={onChangePassword}
         value={password}
       />
-      
+
       <TouchableOpacity
         onPress={() => {
           const user = users.find((user) => user.email === email);
@@ -48,6 +48,9 @@ export default function login() {
         className="bg-blue-700 w-11/12 h-14 items-center justify-center rounded-lg mt-6"
       >
         <Text className="text-white text-lg font-bold">ENTRAR</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => router.push("/")} className="mt-4">
+        <Text>Voltar</Text>
       </TouchableOpacity>
     </View>
   );

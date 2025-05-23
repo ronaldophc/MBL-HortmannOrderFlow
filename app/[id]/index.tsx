@@ -1,36 +1,24 @@
-import { SafeAreaView, ScrollView, View } from "react-native";
+import { ScrollView, View } from "react-native";
 import React from "react";
 import { useGlobalSearchParams } from "expo-router";
 import HeaderHidden from "../../components/headers/HeaderHidden";
-import InfoStatus from "../../components/order/InfoStatus";
 import Track from "../../components/order/Track";
 import FullLogo from "../../components/FullLogo";
 import SugestLogin from "../../components/SugestLogin";
-import { updates } from "../../mocks/mocks";
+import Updates from "../../components/order/Updates";
 
 export default function index() {
   const { id } = useGlobalSearchParams();
 
   return (
-    <ScrollView>
+    <ScrollView className="flex-1 bg-gray-400">
       <View className="flex-1 bg-gray-400 items-center">
         <HeaderHidden />
         <FullLogo />
 
         <Track oldOrderCode={id as string} />
 
-        <View className="w-11/12 mt-5 items-center gap-4">
-          {updates
-            .filter((update) => update.order_code == id)
-            .map((update, index) => (
-              <InfoStatus
-                key={index}
-                status={update.status}
-                date={update.date}
-                description={update.description}
-              />
-            ))}
-        </View>
+        <Updates code={id as string} />
 
         <SugestLogin />
       </View>

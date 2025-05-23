@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack } from "expo-router";
+import { router, Stack } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { Image, TouchableOpacity } from "react-native";
 
@@ -11,20 +11,25 @@ function LogoTitle() {
 
 function CreateButton() {
   return (
-    <TouchableOpacity onPress={() => {}}>
+    <TouchableOpacity
+      onPress={() => {
+        router.push("/order/create");
+      }}
+    >
       <Ionicons name="add-circle-sharp" size={40} color="white" />
     </TouchableOpacity>
   );
 }
 
-export default function HeaderWithTitle() {
+export default function Header() {
   return (
     <Stack.Screen
       options={{
-        headerStyle: { backgroundColor: '#2D0097' },
+        headerStyle: { backgroundColor: "#2D0097" },
         headerTitle: () => <LogoTitle />,
         headerTitleAlign: "center",
         headerRight: () => <CreateButton />,
+        headerTintColor: "white",
       }}
     />
   );

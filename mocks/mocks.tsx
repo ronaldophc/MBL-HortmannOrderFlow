@@ -7,6 +7,7 @@ export const orders = [
         description:
             "Pedido enviado. Para mais informações entre em contato com (42) 99999-9999.",
         user_id: "1",
+        customer_name: "Ronaldo Campos",
     },
     {
         id: "2",
@@ -15,6 +16,7 @@ export const orders = [
         date: "15/03/2025 10:00",
         description: "Pedido sendo produzido.",
         user_id: "1",
+        customer_name: "Antônio Silva",
     },
     {
         id: "3",
@@ -24,6 +26,7 @@ export const orders = [
         description:
             "Pedido entregue. Para mais informações entre em contato com (42) 99999-9999.",
         user_id: "2",
+        customer_name: "Maria Oliveira",
     },
 ]
 
