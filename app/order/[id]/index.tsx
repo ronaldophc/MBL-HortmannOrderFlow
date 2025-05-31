@@ -10,6 +10,7 @@ import { router, useGlobalSearchParams } from "expo-router";
 import { orders } from "../../../mocks/mocks";
 import Header from "../../../components/headers/Header";
 import Updates from "../../../components/order/Updates";
+import DefaultInput from "../../../components/DefaultInput";
 
 export default function index() {
   const { id } = useGlobalSearchParams();
@@ -29,37 +30,35 @@ export default function index() {
   return (
     <ScrollView className="flex-1 bg-gray-400">
       <Header />
-      <View className="flex-1 items-center mt-8">
+      <View className="flex-1 items-start mt-8 w-full px-4">
         <Text className="text-blue-700 text-3xl font-bold mb-8 text-center">
           PEDIDO {order?.code}
         </Text>
-        <TextInput
-          className="h-14 w-11/12 bg-white text-black text-lg rounded-lg mb-4"
-          placeholder="Nome do Cliente"
-          placeholderTextColor="black"
+        <Text className="text-black font-semibold mb-1">Nome do Cliente</Text>
+        <DefaultInput
           value={customerName}
           onChangeText={setCustomerName}
         />
 
-        <TextInput
-          className="h-24 w-11/12 bg-white text-black text-lg rounded-lg mb-4"
-          placeholder="Descrição do Pedido"
-          placeholderTextColor="black"
+        <Text className="text-black font-semibold mb-1">
+          Descrição do Pedido
+        </Text>
+        <DefaultInput
+          className="h-24"
           value={orderDescription}
           onChangeText={setOrderDescription}
           multiline
         />
 
-        <TextInput
-          className="h-14 w-11/12 bg-white text-black text-lg rounded-lg mb-8"
-          placeholder="Código do Pedido"
-          placeholderTextColor="black"
+        <Text className="text-black font-semibold mb-1">Código do pedido</Text>
+        <DefaultInput
           value={orderCode}
           onChangeText={setOrderCode}
+          multiline
         />
 
         <TouchableOpacity
-          className="bg-blue-700 w-11/12 h-14 items-center justify-center rounded-lg"
+          className="bg-blue-700 w-full h-14 items-center justify-center rounded-lg"
           onPress={handleUpdateOrder}
         >
           <Text className="text-white text-lg font-bold">ATUALIZAR</Text>
@@ -68,11 +67,12 @@ export default function index() {
         <Updates code={order?.code as string} />
 
         <TouchableOpacity
+          className="bg-blue-700 w-full h-14 items-center justify-center rounded-lg my-4"
           onPress={() => {
             router.push(`/order/update/new?code=${order?.code}`);
           }}
         >
-          <Text>Criar atualização</Text>
+          <Text className="text-white text-lg font-bold">Criar atualização</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>

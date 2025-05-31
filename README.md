@@ -85,12 +85,12 @@ Segue o cronograma das sprints planejadas até a conclusão do aplicativo:
 
 ### Sprint 5 (18/05 - 24/05)
 
-- [ ] **Criar estaticamente e estilizar as páginas:**
-  - [ ] Home(Logado).
-  - [ ] Visualização do pedido(Logado).
-  - [ ] Criação do pedido.
-  - [ ] Criação de atualização.
-- [ ] **Instalar 'React-native-picker'**
+- [X] **Criar estaticamente e estilizar as páginas:**
+  - [X] Home(Logado).
+  - [X] Visualização do pedido(Logado).
+  - [X] Criação do pedido.
+  - [X] Criação de atualização.
+- [X] **Instalar 'React-native-picker'**
 
 ### Sprint 6 (25/05 - 31/05)
 
