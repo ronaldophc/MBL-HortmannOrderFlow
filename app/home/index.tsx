@@ -1,9 +1,23 @@
-import { View, Text, ScrollView } from "react-native";
-import React from "react";
+import { Text, ScrollView } from "react-native";
+import React, { useEffect } from "react";
 import Header from "../../components/headers/Header";
 import Order from "../../components/order/Orders";
+import useAuth from "../../firebase/hooks/useAuth";
+import { router } from "expo-router";
+import Loading from "../../components/Loading";
 
 export default function index() {
+  const { user, loading } = useAuth();
+
+  useEffect(() => {
+    if (loading) return;
+    if (user == null) {
+      router.replace("/");
+    }
+  }, [user]);
+
+  if (loading) return <Loading />;
+
   return (
     <ScrollView className="flex-1 bg-gray-400">
       <Header />

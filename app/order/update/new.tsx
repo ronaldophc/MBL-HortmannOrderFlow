@@ -8,8 +8,8 @@ import { useGlobalSearchParams } from "expo-router";
 import DefaultInput from "../../../components/DefaultInput";
 
 export default function index() {
-  const { code } = useGlobalSearchParams();
-  const order = orders.find((order) => order.code === code);
+  const { id } = useGlobalSearchParams();
+  const order = orders.find((order) => order.id === id);
   const [orderDescription, setOrderDescription] = useState(order?.description);
 
   const handleNewUpdate = () => {

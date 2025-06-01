@@ -1,55 +1,62 @@
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
-import React, { useState } from "react";
+import { View, Text, TouchableOpacity, Alert } from "react-native";
+import React, { useEffect, useState } from "react";
 import HeaderHidden from "../../components/headers/HeaderHidden";
 import { router } from "expo-router";
 import FullLogo from "../../components/FullLogo";
 
-import { users } from "../../mocks/mocks";
+import DefaultInput from "../../components/DefaultInput";
+import useAuth from "../../firebase/hooks/useAuth";
+import Loading from "../../components/Loading";
 
 export default function login() {
-  const [email, onChangeemail] = useState("fulano@gmail.com");
-  const [password, onChangePassword] = useState("123");
+  const { user, login, loading } = useAuth();
+  const [email, setEmail] = useState("fulano@gmail.com");
+  const [password, setPassword] = useState("123456");
+
+  useEffect(() => {
+    if (loading) return;
+    if (user) {
+      router.replace("/home");
+    }
+  }, [user]);
+
+  if (loading) return <Loading />;
+
+  async function handleLogin() {
+    try {
+      await login(email, password);
+      router.replace("/home");
+    } catch (error: any) {
+      Alert.alert("Login error", error.message.toString());
+    }
+  }
+
+  function handleBack() {
+    router.push("/");
+  }
 
   return (
-    <View className="flex-1 bg-gray-400 items-center">
+    <View className="flex-1 bg-gray-400 items-start mt-8 w-full px-4">
       <HeaderHidden />
       <FullLogo />
 
-      <TextInput
-        className="h-14 w-11/12 p-3 bg-white text-black text-lg rounded-lg mt-24"
-        placeholder="Seu Email"
-        placeholderTextColor="black"
-        onChangeText={onChangeemail}
-        value={email}
-      />
+      <Text className="text-black font-semibold mb-1 mt-4">Seu Email</Text>
+      <DefaultInput onChangeText={setEmail} value={email} />
 
-      <TextInput
+      <Text className="text-black font-semibold mb-1">Sua senha</Text>
+      <DefaultInput
         secureTextEntry
-        className="h-14 w-11/12 p-3 bg-white text-black text-lg rounded-lg mt-4"
-        placeholder="Sua senha"
-        placeholderTextColor="black"
-        onChangeText={onChangePassword}
+        onChangeText={setPassword}
         value={password}
       />
 
       <TouchableOpacity
-        onPress={() => {
-          const user = users.find((user) => user.email === email);
-          if (!user) {
-            alert("Usuário não encontrado");
-            return;
-          }
-          if (user.password !== password) {
-            alert("Senha incorreta");
-            return;
-          }
-          router.push("/home");
-        }}
-        className="bg-blue-700 w-11/12 h-14 items-center justify-center rounded-lg mt-6"
+        onPress={handleLogin}
+        className="bg-blue-700 w-full h-14 items-center justify-center rounded-lg"
       >
         <Text className="text-white text-lg font-bold">ENTRAR</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => router.push("/")} className="mt-4">
+      <TouchableOpacity onPress={handleBack} className="mt-4 self-center">
         <Text>Voltar</Text>
       </TouchableOpacity>
     </View>

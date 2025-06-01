@@ -1,16 +1,23 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import { orders } from "../../mocks/mocks";
 import { router } from "expo-router";
+import useCollection from "../../firebase/hooks/useCollection";
+import Order from "../../types/Order";
+import Loading from "../Loading";
 
 export default function Orders() {
+  const { data, loading } =
+    useCollection<Order>("orders");
+
+  if (loading) return <Loading />;
+
   return (
     <View className="flex-1 justify-center items-center mt-4">
       <View className="w-11/12 gap-4">
-        {orders.map((order, index) => (
+        {data.map((order, index) => (
           <TouchableOpacity
             onPress={() => {
-              router.push(`/order/${order.code}`);
+              router.push(`/order/${order.id}`);
             }}
             key={index}
             className="bg-white p-4 rounded-lg shadow-md w-full"

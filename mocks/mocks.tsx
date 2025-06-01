@@ -30,21 +30,6 @@ export const orders = [
     },
 ]
 
-export const users = [
-    {
-        id: "1",
-        name: "Fulano de Tal",
-        email: "fulano@gmail.com",
-        password: "123"
-    },
-    {
-        id: "2",
-        name: "Ciclano de Tal",
-        email: "ciclano@gmail.com",
-        password: "123"
-    },
-]
-
 export const updates = [
     {
         id: "1",

@@ -95,11 +95,11 @@ Segue o cronograma das sprints planejadas até a conclusão do aplicativo:
 ### Sprint 6 (25/05 - 31/05)
 
 - [ ] **Criar banco de dados e implementa-lo no projeto substituindo os dados fakes**
-- [ ] **Implementar validações e mensagens de erro**
 - [ ] **Criar sistema de login e logout**
 
 ### Sprint 7 (01/06 - 07/06)
 
+- [ ] **Implementar validações e mensagens de erro**
 - [ ] **Polir e finalizar o APP**
 - [ ] **Buildar o aplicativo e testar**
 
