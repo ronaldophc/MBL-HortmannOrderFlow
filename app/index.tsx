@@ -1,6 +1,5 @@
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import { View, Text } from "react-native";
 import React from "react";
-import { router } from "expo-router";
 import HeaderHidden from "../components/headers/HeaderHidden";
 import Track from "../components/order/Track";
 import FullLogo from "../components/FullLogo";
