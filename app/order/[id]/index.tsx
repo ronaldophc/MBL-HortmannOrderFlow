@@ -51,7 +51,7 @@ export default function index() {
         description: orderDescription,
         customer_name: customerName,
       });
-      refresh();
+      await refresh();
     } catch (error) {
       console.error("Erro ao atualizar o pedido:", error);
       alert("Erro ao atualizar o pedido. Tente novamente.");
@@ -92,9 +92,9 @@ export default function index() {
 
         <TouchableOpacity
           className="bg-blue-700 w-full h-14 items-center justify-center rounded-lg my-4"
-          // onPress={() => {
-          //   router.push(`/order/update/new?id=${order.id}`);
-          // }}
+          onPress={() => {
+            router.push(`/order/update/new?id=${order.id}`);
+          }}
         >
           <Text className="text-white text-lg font-bold">
             Criar atualização

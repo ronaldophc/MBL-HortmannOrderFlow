@@ -1,7 +1,8 @@
 import React from "react";
 import { router, Stack } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { Image, TouchableOpacity } from "react-native";
+import { Image, Text, TouchableOpacity } from "react-native";
+import useAuth from "../../firebase/hooks/useAuth";
 
 function LogoTitle() {
   return (
@@ -22,9 +23,25 @@ function CreateButton() {
 }
 
 export default function Header() {
+  const { logout } = useAuth();
   return (
     <Stack.Screen
       options={{
+        headerLeft: () => (
+          <TouchableOpacity
+            onPress={async () => {
+              try {
+                await logout();
+                router.replace("/");
+              } catch (error) {
+                console.error("Erro ao sair:", error);
+                alert("Erro ao sair. Tente novamente.");
+              }
+            }}
+          >
+            <Text className="text-white text-2xl">Sair</Text>
+          </TouchableOpacity>
+        ),
         headerStyle: { backgroundColor: "#2D0097" },
         headerTitle: () => <LogoTitle />,
         headerTitleAlign: "center",

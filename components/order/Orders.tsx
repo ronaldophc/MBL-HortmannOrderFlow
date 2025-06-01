@@ -4,10 +4,10 @@ import { router } from "expo-router";
 import useCollection from "../../firebase/hooks/useCollection";
 import Order from "../../types/Order";
 import Loading from "../Loading";
+import { formatDateBR, getStatusLabel } from "../../helper/format";
 
 export default function Orders() {
-  const { data, loading } =
-    useCollection<Order>("orders");
+  const { data, loading } = useCollection<Order>("orders");
 
   if (loading) return <Loading />;
 
@@ -24,10 +24,10 @@ export default function Orders() {
           >
             <Text className="text-lg font-bold">{order.customer_name}</Text>
             <Text className="text-gray-500">
-              {order.status} - Código: {order.code}
+              {getStatusLabel(order.status)} - Código: {order.code}
             </Text>
             <Text className="text-gray-600">{order.description}</Text>
-            <Text className="text-gray-400">{order.date}</Text>
+            <Text className="text-gray-400">{formatDateBR(order.date)}</Text>
           </TouchableOpacity>
         ))}
       </View>

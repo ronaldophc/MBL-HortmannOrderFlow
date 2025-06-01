@@ -35,7 +35,7 @@ export default function CreateOrder() {
       await create({
         code: orderCode,
         status: "Pendente",
-        date: new Date().toLocaleDateString("pt-BR"),
+        date: new Date().toISOString(),
         description: orderDescription,
         user_id: user!.uid,
         customer_name: customerName,

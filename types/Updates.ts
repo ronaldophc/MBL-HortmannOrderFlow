@@ -1,6 +1,6 @@
 type Updates = {
-    id: string;
-    order_code: string;
+    id?: string;
+    order_id: string;
     status: string;
     date: string;
     description: string;

@@ -6,7 +6,9 @@ import {
   getCountFromServer,
   getDocs,
   getFirestore,
+  query,
   updateDoc,
+  where,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import useFirebase from "./useFirebase";
@@ -72,6 +74,26 @@ export default function useCollection<T extends { [x: string]: any }>(
   };
 
   /**
+   * Find documents by order_id
+   * @param orderId The order_id to filter by
+   * @returns Array of documents matching the order_id
+   */
+  const findByOrderId = async (orderId: string) => {
+    setLoading(true);
+    const q = query(
+      collection(db, collectionName),
+      where("order_id", "==", orderId)
+    );
+    const querySnapshot = await getDocs(q);
+    const dataAsMap = querySnapshot.docs.map((doc) => {
+      const data = doc.data() as T;
+      return { id: doc.id, ...data };
+    });
+    setLoading(false);
+    return dataAsMap;
+  };
+
+  /**
    * get the number of Documents
    * @returns the count as number
    */
@@ -96,5 +118,15 @@ export default function useCollection<T extends { [x: string]: any }>(
     // eslint-disable-next-line
   }, []);
 
-  return { data, loading, create, remove, update, all, count, refreshData };
+  return {
+    data,
+    loading,
+    create,
+    remove,
+    update,
+    all,
+    count,
+    refreshData,
+    findByOrderId,
+  };
 }
